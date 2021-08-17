@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <h1>메인페이지</h1>
-  </div>
+<div>
+  <p>Nuxt 시작페이지</p>
+</div>
+  
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
-<style>
+<style></style>
 
-</style>
