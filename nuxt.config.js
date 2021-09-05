@@ -36,7 +36,7 @@ export default {
   build: {},
 
   server: {
-    port: 3001,
+    port: process.env.NODE_ENV === 'production' ? null : 3001,
   },
 
   env: {
