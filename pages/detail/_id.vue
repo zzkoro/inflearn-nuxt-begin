@@ -11,19 +11,28 @@
       <div class="side-panel">
         <p class="name">{{ product.name }}</p>
         <p class="price">{{ product.price }}</p>
+        <button type="button" @click="addToCart">Add to Cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { fetchProductsById } from '@/api/index'
+import { createCartItem, fetchProductsById } from '~/api'
 
 export default {
   async asyncData({ params }) {
     const response = await fetchProductsById(params.id)
     const product = response.data
     return { product }
+  },
+
+  methods: {
+    async addToCart() {
+      await createCartItem(this.product)
+      this.$store.commit('addItemToCart', this.product)
+      this.$router.push('/cart')
+    },
   },
 }
 </script>
